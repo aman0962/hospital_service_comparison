@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Hospital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Edit Hospital</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" value="{{ hospital[1] }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" name="city" class="form-control" value="{{ hospital[2] }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Treatment</label>
+            <input type="text" name="treatment" class="form-control" value="{{ hospital[3] }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cost</label>
+            <input type="number" name="cost" class="form-control" value="{{ hospital[4] }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Rating</label>
+            <input type="number" step="0.1" name="rating" class="form-control" value="{{ hospital[5] }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ICU Available</label>
+            <input type="text" name="icu" class="form-control" value="{{ hospital[6] }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Ambulance Available</label>
+            <input type="text" name="ambulance" class="form-control" value="{{ hospital[7] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>

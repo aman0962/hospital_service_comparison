@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HOSPITAL SERVICE MANAGEMENT</span>
+  </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+    <h2>HOSPITAL LIST</h2>
+    <a href="/add" class="btn btn-success">Add Hospital</a>
+</div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>CITY</th>
+                <th>TREATEMENT</th>
+                <th>COST</th>
+                <th>Rating</th>
+                <th>ICU</th>
+                <th>AMBULANCE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+{% for row in hospitals %}
+<tr class="text-center align-middle">
+    
+    <!-- 1️⃣ Serial Number -->
+    <td>{{ loop.index }}</td> <!-- Shows 1, 2, 3 ... automatically -->
+
+    <!-- 2️⃣ Hospital Name -->
+    <td>{{ row[1] }}</td>
+
+    <!-- 3️⃣ City -->
+    <td>{{ row[2] }}</td>
+
+    <!-- 4️⃣ Treatment -->
+    <td>{{ row[3] }}</td>
+
+    <!-- 5️⃣ Avg Cost -->
+    <td>{{ row[4] }}</td>
+
+    <!-- 6️⃣ Rating -->
+    <td>{{ row[5] }}</td>
+
+    <!-- 7️⃣ ICU Available -->
+    <td>
+        {% if row[6] == 'Yes' %}
+            <span class="badge bg-success">Available</span>
+        {% else %}
+            <span class="badge bg-danger">Not Available</span>
+        {% endif %}
+    </td>
+
+    <!-- 8️⃣ Ambulance Available -->
+    <td>
+        {% if row[7] == 'Yes' %}
+            <span class="badge bg-success">Available</span>
+        {% else %}
+            <span class="badge bg-danger">Not Available</span>
+        {% endif %}
+    </td>
+
+    <!-- 9️⃣ Action Buttons -->
+    <td>
+        <div class="d-flex gap-2 justify-content-center">
+            <a href="/edit/{{ row[0] }}" class="btn btn-outline-primary btn-sm">✏ Edit</a>
+            <a href="/delete/{{ row[0] }}" class="btn btn-outline-danger btn-sm"
+               onclick="return confirm('Delete this hospital?');">🗑 Delete</a>
+        </div>
+    </td>
+
+</tr>
+{% endfor %}
+</tbody>
+    </table>
+</div>
+<div style="
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(187, 25, 87, 0.2);
+    font-style: italic;
+    z-index: 1000;
+    pointer-events: none;
+">
+    26.04
+</div>
+</body>
+</html>
